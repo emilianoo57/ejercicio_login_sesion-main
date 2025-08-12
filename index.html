@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo de Artes Marciales - Dragon Ball Z</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>🐉 Acceso a tarjetas 🐉</h2>
+            
+            <!-- Mensaje de estado -->
+            <div id="message" class="message" style="display: none;"></div>
+            
+            <form id="loginForm" action="http://localhost/ejercicio_login_sesion-main/api/api.php?seccion=usuarios&accion=login" method="POST">
+                <div class="form-group">
+                    <label for="username">🥋 Nombre del Guerrero:</label>
+                    <input type="text" id="username" name="username" placeholder="Ej: goku, vegeta, gohan..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">⚡ Código de Poder:</label>
+                    <input type="password" id="password" name="password" placeholder="Tu nivel de poder secreto" required>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="login-btn" id="loginBtn">
+                        🚀 ¡Acceder a mis Tarjetas!
+                    </button>
+                </div>
+                
+                <div class="form-links">
+                    <a href="http://localhost/ejercicio_login_sesion-main/tarjetas.html" class="nav-link">👁️ Ver todas las tarjetas sin login</a>
+                    <a href="#" class="forgot-password">¿Olvidaste tu poder de combate?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario
+
+        // Validar campos antes de enviar
+        const username = this.querySelector('input[name="username"]').value;
+        const password = this.querySelector('input[name="password"]').value;
+
+        if (username.trim() === '' || password.trim() === '') {
+            alert('Por favor, completa todos los campos.');
+            return;
+        }
+
+        try {
+            const formData = new FormData(this);
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                credentials: 'include' // Incluir cookies para la sesión
+            });
+            const data = await response.json();
+            console.log(data);
+            if (data.success) {
+                // Redirigir a la página de tarjetas
+                window.location.href = 'tarjetas.html';
+            } else {
+                // Mostrar mensaje de error
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerHTML = `<div class="error-msg">❌ ${data.message}</div>`;
+                messageDiv.style.display = 'block';
+            }
+        } catch (error) {
+            alert('Error al procesar la solicitud. Inténtalo de nuevo más tarde.');
+            console.error('Error:', error);
+        }
+
+        // Mostrar mensaje de error si viene de un login fallido en URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+
+        if (error === 'credenciales_incorrectas') {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = '<div class="error-msg">❌ Credenciales incorrectas. ¡Tu poder no es suficiente!</div>';
+            messageDiv.style.display = 'block';
+
+            // Limpiar URL para que no vuelva a mostrar el error
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    });
+</script>
+
+   
+</body>
+</html>

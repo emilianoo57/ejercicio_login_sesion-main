@@ -1,0 +1,575 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #FF6B00 0%, #FFD700 50%, #FF4500 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 107, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.2) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Estilos para el formulario de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-form {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.2),
+        0 0 0 3px #FFD700,
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    border: 2px solid #FF6B00;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FF6B00;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #FF4500;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #FF6B00;
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.3);
+    background: white;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #FF6B00 0%, #FFD700 50%, #FF4500 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(255, 107, 0, 0.6);
+    background: linear-gradient(135deg, #FF4500 0%, #FF6B00 50%, #FFD700 100%);
+}
+
+.form-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-links a {
+    color: #FF6B00;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-links a:hover {
+    color: #FF4500;
+    text-decoration: underline;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para la página de tarjetas */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    color: #FFD700;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, rgba(255, 107, 0, 0.8), rgba(255, 215, 0, 0.6));
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 2px solid #FFD700;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link:hover {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.9), rgba(255, 107, 0, 0.7));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+}
+
+/* Grid de tarjetas */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.2),
+        0 0 0 2px #FFD700,
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    border: 2px solid #FF6B00;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 3px #FFD700,
+        0 0 20px rgba(255, 107, 0, 0.6);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #FF6B00;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.card-content p {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.card-btn {
+    background: linear-gradient(135deg, #FF6B00 0%, #FFD700 50%, #FF4500 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(255, 107, 0, 0.6);
+    background: linear-gradient(135deg, #FF4500 0%, #FF6B00 50%, #FFD700 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-form {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    header h1 {
+        font-size: 28px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form {
+        padding: 25px 15px;
+    }
+    
+    .login-form h2 {
+        font-size: 24px;
+    }
+    
+    .form-group input,
+    .login-btn {
+        font-size: 14px;
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+}
+
+/* Estilos para carga dinámica de tarjetas */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 3px solid #FFD700;
+}
+
+.loading h3 {
+    color: #FF6B00;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loading-animation {
+    font-size: 32px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.error-message {
+    grid-column: 1 / -1;
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(255, 69, 0, 0.95), rgba(220, 20, 60, 0.9));
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 3px solid #FFD700;
+}
+
+.error-message h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.error-message p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.retry-btn {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #333;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.retry-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+}
+
+/* Animación de aparición para las tarjetas dinámicas */
+.card.fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estado de tarjeta vacía */
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 3px dashed #FFD700;
+}
+
+.empty-state h3 {
+    color: #FF6B00;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Estilos adicionales para tarjetas dinámicas */
+.card-titulo {
+    font-style: italic;
+    color: #FF6B00;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.card-descripcion {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nivel-poder {
+    background: linear-gradient(135deg, #FF6B00, #FFD700);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.rareza {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rareza-mítico { background: #FF1493; color: white; }
+.rareza-legendario { background: #7B68EE; color: white; }
+.rareza-épico { background: #FF6B00; color: white; }
+.rareza-raro { background: #FFD700; color: #333; }
+.rareza-poco-común { background: #32CD32; color: white; }
+.rareza-común { background: #808080; color: white; }
+
+.tecnica {
+    background: rgba(255, 215, 0, 0.2);
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FF6B00;
+    border-left: 3px solid #FFD700;
+}
+
+/* Responsive para nuevos elementos */
+@media (max-width: 768px) {
+    .card-stats {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .nivel-poder, .rareza {
+        text-align: center;
+    }
+    
+    .loading h3 {
+        font-size: 20px;
+    }
+    
+    .error-message h3 {
+        font-size: 20px;
+    }
+}
+
+/* Estilos para mensajes de estado en el login */
+.message {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error-msg {
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+    animation: shake 0.5s ease-in-out;
+}
+
+.success-msg {
+    background: linear-gradient(135deg, #2ed573 0%, #1dd1a1 100%);
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(46, 213, 115, 0.3);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Estilos para información del usuario en tarjetas */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.logout-link {
+    color: #FFD700;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.logout-link:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #FFD700;
+    transform: translateY(-1px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Responsive para la información del usuario */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerreros Z - Dragon Ball Z</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐉 Guerreros Legendarios Z 🐉</h1>
+            <nav>
+                <a href="http://localhost/ejercicio_login_sesion-main/index.html" class="nav-link">⬅️ Volver al Torneo</a>
+                <div id="user-info" class="user-info" style="display: none;">
+                    <span id="welcome-message"></span>
+                    <a href="http://localhost/ejercicio_login_sesion-main/api/api.php?seccion=usuarios&accion=logout" class="logout-link" onclick="return confirm('¿Cerrar sesión?')">🚪 Salir</a>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="cards-container" id="cards-container">
+            <!-- 🐉 Las tarjetas se cargarán dinámicamente desde la API 🐉 -->
+            <div id="loading" class="loading">
+                <h3>� Invocando a los Guerreros Z...</h3>
+                <div class="loading-animation">⚡🐉⚡</div>
+            </div>
+            
+            <div id="error-message" class="error-message" style="display: none;">
+                <h3>❌ Error al invocar a los guerreros</h3>
+                <p id="error-text"></p>
+                <button onclick="cargarTarjetas()" class="retry-btn">🔄 Reintentar</button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="tarjetas.js"></script>
+</body>
+</html>
